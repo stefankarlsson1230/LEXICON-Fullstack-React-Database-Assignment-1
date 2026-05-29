@@ -74,3 +74,6 @@ database.
 customer’s cellphone number. (The old column, phone currently holds cellphone numbers only. )
 - Write a query to copy the information from phone to mobile.
 - Write a query to empty the phone column(Sets it to an empty string)
+
+
+*Note - Theses exercises were solved in pgAdmin4*
