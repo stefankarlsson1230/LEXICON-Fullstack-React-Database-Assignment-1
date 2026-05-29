@@ -70,6 +70,12 @@ VALUES
 
 
 -- Exercise 3
+-- On 2025-01-01, Jonas Gray purchases Interstellar and Pulp Fiction
+INSERT INTO orders (order_date, customer_id)
+VALUES ()
 
+
+-- On 2025-12-15, Peter Birro purchases 2 copies of The Wolf of Wall Street.
+-- On 2026-03-20, Jonas Gray purchased The Wolf of Wall Street 
 
 
