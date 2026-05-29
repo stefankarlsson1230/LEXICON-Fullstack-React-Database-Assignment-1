@@ -54,7 +54,22 @@ CREATE TABLE orderrows (
 );
 
 -- Exercise 2
+INSERT INTO customers (first_name, last_name, billing_address, billing_zip, billing_city, delivery_address, delivery_zip, delivery_city, email, phone)
+VALUES 
+('Jonas', 'Gray', '23 Green Corner Street', '56743', 'Birmingham', '23 Green Corner Street', '56743', 'Birmingham', 'jonas.gray@hotmail.com', '0708123456'),
+('Jane', 'Harolds', '10 West Street', '43213', 'London', '10 West Street', '43213', 'London', 'jane_h77@gmail.com', '0701245512'),
+('Peter', 'Birro', '12 Fox Street', '45681', 'New York', '89 Moose Plaza', '45321', 'Seattle', 'peter_the_great@hotmail.com', '0739484322');
 
+
+INSERT INTO movies (title, director, release_year, price)
+VALUES
+('Interstellar', 'Christoper Nolan', 2014, 179),
+('Hobbit: Battle of the five armies', 'Peter Jackson', 2014, 179),
+('The Wolf of Wall Street', 'Martin Scorcese', 2013, 119),
+('Pulp Fiction', 'Quentin Tarantino', 1994, 49);
+
+
+-- Exercise 3
 
 
 
