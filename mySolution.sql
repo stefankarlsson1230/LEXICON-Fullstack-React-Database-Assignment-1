@@ -128,15 +128,40 @@ WHERE release_year = 2014;
 -- Exercise 5
 -- Write queries for the following SELECT operations
 -- Get first_name, Last_name, phone and email to all customers.
-
-
+SELECT first_name, last_name, phone, email FROM customers;
 
 -- Get all movies, ordered by year from newest to oldest.
+SELECT * FROM movies ORDER BY release_year DESC; 
+
 -- Get all movie titles, ordered by price, from cheapest to most expensive.
--- Get first_name, Last_name, delivery__address, delivery_zip, delivery_city for all customers who bought The Wolf of Wall Street.
---Get Id, Date, customer (first_name, last_name) and total cost of every individual order.
--- (Optional) Get customer (first_name, last_name), total number of movies ordered by this customer, number of orders by this customer and total cost of all orders by this customer.
+SELECT title FROM movies ORDER BY price ASC;
+
+-- Get first_name, Last_name, delivery_address, delivery_zip, delivery_city 
+-- for all customers who bought The Wolf of Wall Street.
+SELECT DISTINCT first_name, last_name, delivery_address, delivery_zip, delivery_city FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN orderrows orw ON o.id = orw.order_id
+JOIN movies m ON orw.movie_id = m.id
+WHERE m.title = 'The Wolf of Wall Street';
+
+-- Get Id, Date, customer (first_name, last_name) and total cost of every individual order.
+SELECT o.id, o.order_date, c.first_name, c.last_name, sum(orw.price) as "Order cost" FROM orders o
+JOIN customers c ON o.customer_id = c.id
+JOIN orderrows orw ON o.id = orw.order_id
+GROUP BY o.id, c.first_name, c.last_name
+ORDER BY o.id ASC;
+
+-- (Optional) Get customer (first_name, last_name), total number of movies ordered by 
+-- this customer, number of orders by this customer and total cost of all orders by this customer.
+SELECT c.first_name, c.last_name, count(orw.movie_id) as "Movies ordered", count(DISTINCT o.id) as "Orders", sum(price) FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN orderrows orw ON o.id = orw.order_id
+GROUP BY c.first_name, c.last_name;
+
 -- (Optional) Get number of orders and total cost for all orders in the database.
+SELECT count(DISTINCT o.id) as "Orders", sum(orw.price) as "Total" FROM orders o
+JOIN orderrows orw ON o.id = orw.order_id;
+
 
 
 
