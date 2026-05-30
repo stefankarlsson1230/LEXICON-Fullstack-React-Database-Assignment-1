@@ -163,8 +163,16 @@ SELECT count(DISTINCT o.id) as "Orders", sum(orw.price) as "Total" FROM orders o
 JOIN orderrows orw ON o.id = orw.order_id;
 
 
+-- Exercise 6
+-- Add a new column, mobile to the customers table. The column should contain the customer’s 
+-- cellphone number. (The old column, phone currently holds cellphone numbers only. )
+ALTER TABLE customers ADD mobile TEXT;
 
+-- Write a query to copy the information from phone to mobile.
+UPDATE customers SET mobile = phone;
 
+-- Write a query to empty the phone column(Sets it to an empty string)
+UPDATE customers SET phone = '';
 
 
 
